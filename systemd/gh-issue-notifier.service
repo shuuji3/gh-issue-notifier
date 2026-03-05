@@ -1,0 +1,11 @@
+[Unit]
+Description=gh-issue-notifier service
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=pnpm start
+
+[Install]
+WantedBy=default.target
+
