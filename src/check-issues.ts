@@ -2,6 +2,8 @@ import { exec } from 'node:child_process'
 import { promisify } from 'node:util'
 import { readFileSync, writeFileSync } from 'node:fs'
 import nodemailer from 'nodemailer'
+import type { Issue } from './types.ts'
+import { log, escapeHtml } from './utils.ts'
 
 const execAsync = promisify(exec)
 const config = JSON.parse(readFileSync('./config.json', 'utf-8'))
@@ -16,13 +18,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.SMTP_PASS,
   },
 })
-
-type Issue = {
-  number: number
-  title: string
-  url: string
-  createdAt: string
-}
 
 async function run() {
   const isDebug = process.env.DEBUG === 'true'
@@ -98,19 +93,6 @@ async function fetchIssues(repo: string, isDebug: boolean, dateLimit: string): P
   return filteredIssues.sort(
     (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
   )
-}
-
-function log(level: 'info' | 'error', message: string, data?: object) {
-  console.log(JSON.stringify({ timestamp: new Date().toISOString(), level, message, ...data }))
-}
-
-function escapeHtml(unsafe: string) {
-  return unsafe
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;')
 }
 
 run()
