@@ -37,7 +37,7 @@ systemctl --user daemon-reload
 systemctl --user enable --now gh-issue-notifier.timer
 ```
 
-Edit ~/.config/systemd/user/gh-issue-notifier.service.d/override.conf to set WorkingDirectory to your absolute path.
+Edit `~/.config/systemd/user/gh-issue-notifier.service.d/override.conf` to set `WorkingDirectory=` to your absolute path.
 
 ## License
 MIT
