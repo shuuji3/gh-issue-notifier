@@ -2,6 +2,9 @@
 
 A tool to monitor GitHub repositories and send email notifications for new issues.
 
+> [!NOTE]
+> There is no flexibility now! Only 3 days old issues will be notified just to meet my needs.
+
 ## Setup
 
 1. Install dependencies:
