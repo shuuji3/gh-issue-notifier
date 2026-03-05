@@ -4,9 +4,16 @@
   "description": "Send email notification for monitoring repositories.",
   "type": "module",
   "scripts": {
-    "start": "node src/check-issues.ts"
+    "start": "node src/check-issues.ts",
+    "lint": "oxlint src",
+    "lint:fix": "oxlint src --fix",
+    "format": "oxfmt --write src"
   },
-  "keywords": ["github", "email", "notification"],
+  "keywords": [
+    "github",
+    "email",
+    "notification"
+  ],
   "author": "TAKAHASHI Shuuji",
   "license": "MIT",
   "packageManager": "pnpm@10.13.1",
@@ -15,6 +22,8 @@
   },
   "devDependencies": {
     "@types/node": "^25.3.3",
-    "@types/nodemailer": "^7.0.11"
+    "@types/nodemailer": "^7.0.11",
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0"
   }
 }
