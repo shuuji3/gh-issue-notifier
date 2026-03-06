@@ -14,7 +14,7 @@
     "email",
     "notification"
   ],
-  "author": "TAKAHASHI Shuuji",
+  "author": "TAKAHASHI Shuuji <id@shuuji3.xyz>",
   "license": "MIT",
   "packageManager": "pnpm@10.13.1",
   "dependencies": {
